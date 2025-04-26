@@ -1,0 +1,46 @@
+name: develop
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+
+permissions:
+  pull-requests: read
+
+
+jobs:
+  Analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use Node 18.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Ejecutar análisis en SonarCloud
+        uses: SonarSource/sonarcloud-github-action@4006f663ecaf1f8093e8e4abb9227f6041f52216
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with: 
+          projectBaseDir: .
+          args: >
+            -Dsonar.projectKey=angelmo1505_seminario_front
+            -Dsonar.sources=src 
+            -Dsonar.organization=angelmo1505
+            -Dsonar.sourceEncoding=UTF-8
+            -Dsonar.login=$SONAR_TOKEN
