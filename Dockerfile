@@ -11,7 +11,7 @@ RUN npm run build --configuration=development
 FROM nginx:alpine
 
 # Copiar archivos de Angular al contenedor Nginx
-COPY --from=build-stage /app/dist/seminario_front /usr/share/nginx/html
+COPY --from=build-stage /app/dist/seminario_front/browser  /usr/share/nginx/html
 
 # Copiar configuración custom de Nginx si quieres (opcional)
 # COPY nginx.conf /etc/nginx/nginx.conf
