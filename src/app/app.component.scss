@@ -1,0 +1,21 @@
+.navbar {
+    background-color: #27279d;
+    overflow: hidden;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .navbar a:hover {
+    background-color: #4848ab;
+  }
+  
+  .main-content {
+    padding: 20px;
+  }
+  
