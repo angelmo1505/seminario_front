@@ -1,0 +1,50 @@
+<div class="header">
+    <div class="title">
+        <h2>Inventario</h2>
+    </div>
+    <div class="subtitle">
+        <div class="inputs">
+            <div class="input">
+                <label for="">ID Producto</label>
+                <input matInput #productIdInput type="number" placeholder="Product ID">
+            </div>
+            <div class="input">
+                <label for="">Cantidad</label>
+                <input matInput #quantityInput type="number" placeholder="Cantidad">
+            </div>
+            <div class="input">
+                <label for="">ID Inventario</label>
+                <input matInput #idInput type="number" placeholder="Inventory ID">
+            </div>
+        </div>
+        <div class="buttons">
+            <button [disabled]="!isInvalid(idInput.valueAsNumber)" mat-flat-button (click)="createInventory(quantityInput.valueAsNumber, productIdInput.valueAsNumber)">Agregar</button>
+            <button 
+                mat-stroked-button 
+                (click)="updateInventory(idInput.valueAsNumber, quantityInput.valueAsNumber, productIdInput.valueAsNumber)">
+                Actualizar
+            </button>
+        </div>
+    </div>
+</div>
+<div class="content" >
+    <div class="table">
+        <div class="row title">
+            <div class="titlerow">ID</div>
+            <div class="titlerow">Nombre</div>
+            <div class="titlerow">Cantidad</div>
+        </div>
+        <div class="row" *ngFor="let item of inventories">
+            <div class="cell">
+                {{ item.id }}         
+            </div>
+            <div class="cell">
+                {{ item.productName }} 
+            </div>
+            <div class="cell">
+                {{ item.quantity }}
+            </div>
+        </div>
+
+    </div>
+</div>
