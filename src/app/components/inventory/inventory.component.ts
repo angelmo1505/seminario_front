@@ -3,13 +3,15 @@ import { InventoryService } from '../../services/inventory.service';
 import { CommonModule } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-inventory',
   imports: [
     CommonModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ],
   templateUrl: './inventory.component.html',
   styleUrl: './inventory.component.scss'
@@ -46,6 +48,19 @@ export class InventoryComponent implements OnInit {
     this.inventoryService.search(value).subscribe(data => {
       this.inventories = data;
     });
+  }
+
+  findInventary(id: any){
+    if (!this.isInvalid(id) ) {
+      this.inventoryService.getById(id).subscribe({
+        next: (resp) => {
+          this.inventories = [resp]; 
+        },
+        error: (error) => console.log()
+      })
+    }else{
+      this.loadInventories();
+    }
   }
 
   isInvalid(value: number): boolean {

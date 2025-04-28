@@ -16,7 +16,7 @@ export class InventoryService {
   }
 
   getById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`);
+    return this.http.get<any>(`${this.apiUrl}/inventory/${id}`);
   }
 
   create(inventory: any): Observable<any> {
