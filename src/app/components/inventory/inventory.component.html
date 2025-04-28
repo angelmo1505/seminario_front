@@ -4,6 +4,9 @@
     </div>
     <div class="subtitle">
         <div class="inputs">
+            <button mat-fab aria-label="Example icon button with a delete icon" (click)="findInventary(productIdInput.valueAsNumber)">
+                <mat-icon>search</mat-icon>
+            </button>
             <div class="input">
                 <label for="">ID Producto</label>
                 <input matInput #productIdInput type="number" placeholder="Product ID">
