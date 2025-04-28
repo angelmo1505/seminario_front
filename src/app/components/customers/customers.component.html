@@ -1,1 +1,108 @@
-<p>customers works!</p>
+<div class="header">
+  <div class="title">
+    <h2>Clientes</h2>
+  </div>
+  <div class="subtitle">
+    <div class="inputs">
+      <button mat-fab aria-label="Example icon button with a delete icon" (click)="findCustomer(customerIdInput.valueAsNumber)">
+          <mat-icon>search</mat-icon>
+      </button>
+      <div class="input">
+        <label>ID Cliente</label>
+        <input matInput #customerIdInput type="number" placeholder="Customer ID">
+      </div>
+      <div class="input">
+        <label>Tipo Documento</label
+        <input matInput #typeDocument type="text" placeholder="Tipo Documento">
+      </div>
+      <div class="input">
+        <label># Documento</label>
+        <input matInput #numDocument type="text" placeholder="# Documento">
+      </div>
+      <div class="input">
+        <label>Nombre</label>
+        <input matInput #firstNameInput type="text" placeholder="Nombre">
+      </div>
+      <div class="input">
+        <label>Apellido</label>
+        <input matInput #lastNameInput type="text" placeholder="Apellido">
+      </div>
+      <div class="input">
+        <label>Email</label>
+        <input matInput #emailInput type="email" placeholder="Email">
+      </div>
+      <div class="input">
+        <label>Teléfono</label>
+        <input matInput #phoneInput type="text" placeholder="Teléfono">
+      </div>
+      <div class="input">
+        <label>Direccion</label>
+        <input matInput #address type="text" placeholder="Direccion">
+      </div>
+      <div class="input">
+        <label>Ciudad</label>
+        <input matInput #city type="text" placeholder="Ciudad">
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button 
+        mat-flat-button 
+        [disabled]="!firstNameInput.value || !lastNameInput.value"
+        (click)="createCustomer(
+          customerIdInput.valueAsNumber,
+          numDocument.value,
+          typeDocument.value,
+          firstNameInput.value, 
+          lastNameInput.value, 
+          emailInput.value, 
+          phoneInput.value,
+          address.value,
+          city.value
+        )">
+        Agregar
+      </button>
+
+      <button 
+        mat-stroked-button 
+        (click)="updateCustomer(
+          customerIdInput.valueAsNumber,
+          numDocument.value,
+          typeDocument.value,
+          firstNameInput.value, 
+          lastNameInput.value, 
+          emailInput.value, 
+          phoneInput.value,
+          address.value,
+          city.value
+        )">
+        Actualizar
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="table">
+    <div class="row title">
+      <div class="titlerow">ID</div>
+      <div class="titlerow">Documento</div>
+      <div class="titlerow">Nombre</div>
+      <div class="titlerow">Apellido</div>
+      <div class="titlerow">Email</div>
+      <div class="titlerow">Teléfono</div>
+      <div class="titlerow">Direccion</div>
+      <div class="titlerow">Ciudad</div>
+    </div>
+    <div class="row" *ngFor="let customer of customers">
+      <div class="cell">{{ customer.id }}</div>
+      <div class="cell">{{ customer.documentType }} {{ customer.documentNumber }}</div>
+      <div class="cell">{{ customer.firstName }}</div>
+      <div class="cell">{{ customer.lastName }}</div>
+      <div class="cell">{{ customer.email }}</div>
+      <div class="cell">{{ customer.phoneNumber }}</div>
+      <div class="cell">{{ customer.address }}</div>
+      <div class="cell">{{ customer.city }}</div>
+    </div>
+  </div>
+</div>

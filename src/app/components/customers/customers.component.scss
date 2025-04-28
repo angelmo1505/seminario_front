@@ -1,0 +1,95 @@
+.header {
+    display: flex;
+    width: 100%;
+    height: 35%;
+    flex-direction: column;
+    align-items: center;
+  
+    .title {
+      display: flex;
+    }
+  
+    .subtitle {
+      display: flex;
+      width: 70%;
+      flex-direction: column;
+      align-items: center;
+  
+      .inputs {
+        display: flex;
+        padding: 15px;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+  
+        .input {
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+        }
+      }
+  
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+        margin-top: 10px;
+      }
+    }
+  }
+  
+  .content {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  
+    .table {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+      width: auto;
+  
+      .title {
+        background-color: #27279d;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+        font-weight: bold;
+      }
+  
+      .row {
+        display: flex;
+        border-bottom: 1px solid #eee;
+  
+        .titlerow, .cell {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 155px;
+          padding: 8px;
+          border-right: 1px solid #eee;
+          text-align: center;
+        }
+  
+        .titlerow:last-child, .cell:last-child {
+          border-right: none;
+        }
+      }
+    }
+  
+    .titletable {
+      display: flex;
+    }
+  
+    .contenttable {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
