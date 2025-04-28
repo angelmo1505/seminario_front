@@ -3,11 +3,10 @@ import { CustomerService } from '../../services/customers.service';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-customers',
-  standalone: true,
   imports: [
     CommonModule,
     MatButtonModule,
@@ -15,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule
   ],
   templateUrl: './customers.component.html',
-  styleUrls: ['./customers.component.scss']
+  styleUrl: './customers.component.scss'
 })
 export class CustomersComponent {
   customers: any[] = [];
@@ -32,15 +31,68 @@ export class CustomersComponent {
     });
   }
 
-  findCustomer(id: any): void {
-    if (!this.isInvalid(id)) {
+  createCustomer(
+    id: number,
+    documentNumber: string,
+    documentType: string,
+    firstName: string,
+    lastName: string,
+    email: string,
+    phoneNumber: string,
+    address: string,
+    city: string
+  ) {
+    const newcustomer = { 
+      id,
+      documentNumber,
+      documentType,
+      firstName,
+      lastName,
+      email,
+      phoneNumber,
+      address,
+      city
+    };
+    this.customerService.create(newcustomer).subscribe(() => this.loadCustomers());
+  }
+
+  updateCustomer(
+    id: number,
+    documentNumber: string,
+    documentType: string,
+    firstName: string,
+    lastName: string,
+    email: string,
+    phoneNumber: string,
+    address: string,
+    city: string
+  ) {
+    const updateCustomer: any = { 
+      id, 
+      documentNumber, 
+      documentType, 
+      firstName, 
+      lastName, 
+      email, 
+      phoneNumber, 
+      address, 
+      city 
+    };
+    this.customerService.update(id, updateCustomer).subscribe({
+      next: () => this.loadCustomers(),
+      error: (error) => console.log()
+    });
+  }
+
+  findCustomer(id: any){
+    if (!this.isInvalid(id) ) {
       this.customerService.getById(id).subscribe({
         next: (resp) => {
-          this.customers = [resp];
+          this.customers = [resp]; 
         },
-        error: (error) => console.error(error)
-      });
-    } else {
+        error: (error) => console.log()
+      })
+    }else{
       this.loadCustomers();
     }
   }
