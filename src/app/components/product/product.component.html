@@ -1,1 +1,63 @@
-<p>product works!</p>
+<div class="header">
+	<div class="title">
+		<h2>Productos</h2>
+	</div>
+	<div class="subtitle">
+		<div class="inputs">
+			<button mat-fab aria-label="Buscar producto" (click)="findProduct(productIdInput.valueAsNumber)">
+				<mat-icon>search</mat-icon>
+			</button>
+			<div class="input">
+				<label>ID Producto</label>
+				<input matInput #productIdInput type="number" placeholder="Product ID">
+			</div>
+			<div class="input">
+				<label>Categoría</label>
+				<input matInput #categoryInput type="text" placeholder="Categoría">
+			</div>
+		</div>
+		<div class="buttons">
+			<button mat-flat-button (click)="getAllProducts()">Mostrar Todos</button>
+			<button mat-flat-button (click)="findByCategory(categoryInput.value)">Buscar Categoría</button>
+		</div>
+	</div>
+</div>
+  
+<div class="content">
+  <div class="table">
+    <div class="title">LISTADO DE PRODUCTOS</div>
+    <div class="row titletable">
+        <div class="titlerow">ID</div>
+        <div class="titlerow">Código</div>
+        <div class="titlerow">Descripción</div>
+        <div class="titlerow">Valor Bruto</div>
+        <div class="titlerow">IVA</div>
+        <div class="titlerow">Valor Venta</div>
+        <div class="titlerow">Color</div>
+        <div class="titlerow">Modelo</div>
+        <div class="titlerow">Categoría</div>
+        <div class="titlerow">Imagen</div>
+        <div class="titlerow">Materiales</div>
+        <div class="titlerow">Funcionalidades</div>
+    </div>
+    <div class="contenttable">
+        <div class="row" *ngFor="let product of products">
+            <div class="cell">{{ product.id }}</div>
+            <div class="cell">{{ product.code }}</div>
+            <div class="cell">{{ product.description }}</div>
+            <div class="cell">{{ product.vlrBruto | currency:'COP':'symbol':'1.0-0' }}</div>
+            <div class="cell">{{ product.iva | number:'1.0-0' }}%</div>
+            <div class="cell">{{ product.vlrVenta }}</div>
+            <div class="cell">{{ product.color }}</div>
+            <div class="cell">{{ product.modelo }}</div>
+            <div class="cell">{{ product.category }}</div>
+            <div class="cell">
+                <img *ngIf="product.imageUrl" [src]="product.imageUrl" alt="Imagen" width="50">
+            </div>
+            <div class="cell">{{ product.materials }}</div>
+            <div class="cell">{{ product.functionalities }}</div>
+        </div>
+    </div>
+  </div>
+</div>
+  
