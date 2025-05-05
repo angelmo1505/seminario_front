@@ -63,7 +63,7 @@ export class InventoryComponent implements OnInit {
     }
   }
 
-  isInvalid(value: number): boolean {
-    return isNaN(value) || value === null || value === undefined;
+  isInvalid(value: number | null | undefined): boolean {
+    return isNaN(value as number) || value === null || value === undefined;
   }
 }
