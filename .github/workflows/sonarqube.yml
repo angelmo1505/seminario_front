@@ -32,8 +32,13 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Run Angular tests with coverage
-        run: npm run test -- --code-coverage --watch=false
+      - name: Install Chrome Headless
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
+
+      - name: Run Angular tests with coverage (Chrome Headless)
+        run: npm run test -- --code-coverage --watch=false --browsers=ChromeHeadlessCI
 
       - name: Ejecutar análisis en SonarCloud
         uses: SonarSource/sonarcloud-github-action@4006f663ecaf1f8093e8e4abb9227f6041f52216

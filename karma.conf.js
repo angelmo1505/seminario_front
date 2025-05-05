@@ -31,7 +31,13 @@ module.exports = function (config) {
       ]
     },
     reporters: ['progress', 'kjhtml', 'coverage'],
-    browsers: ['Chrome'],
-    restartOnFileChange: true
+    browsers: ['ChromeHeadlessCI'], // Usa ChromeHeadlessCI en lugar de 'Chrome'
+    restartOnFileChange: true,
+    customLaunchers: {
+      ChromeHeadlessCI: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox'] // Importante para CI
+      }
+    }
   });
 };
