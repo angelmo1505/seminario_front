@@ -24,8 +24,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/seminario_front'),
-      subdir: '.',
+      dir: require('path').join(__dirname, './coverage'),
       reporters: [
         { type: 'lcovonly', subdir: '.' },
         { type: 'text-summary' }
