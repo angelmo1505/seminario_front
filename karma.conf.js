@@ -27,7 +27,8 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage'),
       reporters: [
         { type: 'lcovonly', subdir: '.' },
-        { type: 'text-summary' }
+        { type: 'text-summary' },
+        { type: 'html', subdir: 'seminario_front' }
       ]
     },
     reporters: ['progress', 'kjhtml', 'coverage'],
