@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
-  private apiUrl = 'http://3.133.150.117:9525/api'; // ajusta según tu backend
+  private apiUrl = 'http://3.133.150.117:9525/api';
 
   constructor(private http: HttpClient) {}
 

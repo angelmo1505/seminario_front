@@ -3,45 +3,53 @@
     <h2>Clientes</h2>
   </div>
   <div class="subtitle">
-    <div class="inputs">
-      <button mat-fab aria-label="Example icon button with a delete icon" (click)="findCustomer(customerIdInput.valueAsNumber)">
+    <div class="content-filters">
+      <div class="find">
+        <button mat-fab aria-label="Example icon button with a delete icon" (click)="findCustomer(customerIdInput.valueAsNumber)">
           <mat-icon>search</mat-icon>
-      </button>
-      <div class="input">
-        <label>ID Cliente</label>
-        <input matInput #customerIdInput type="number" placeholder="Customer ID">
+        </button>  
       </div>
-      <div class="input">
-        <label>Tipo Documento</label
-        <input matInput #typeDocument type="text" placeholder="Tipo Documento">
-      </div>
-      <div class="input">
-        <label># Documento</label>
-        <input matInput #numDocument type="text" placeholder="# Documento">
-      </div>
-      <div class="input">
-        <label>Nombre</label>
-        <input matInput #firstNameInput type="text" placeholder="Nombre">
-      </div>
-      <div class="input">
-        <label>Apellido</label>
-        <input matInput #lastNameInput type="text" placeholder="Apellido">
-      </div>
-      <div class="input">
-        <label>Email</label>
-        <input matInput #emailInput type="email" placeholder="Email">
-      </div>
-      <div class="input">
-        <label>Teléfono</label>
-        <input matInput #phoneInput type="text" placeholder="Teléfono">
-      </div>
-      <div class="input">
-        <label>Direccion</label>
-        <input matInput #address type="text" placeholder="Direccion">
-      </div>
-      <div class="input">
-        <label>Ciudad</label>
-        <input matInput #city type="text" placeholder="Ciudad">
+      <div class="filter">
+        <div class="inputs">
+          <div class="input">
+            <label for="customerIdInput">ID Cliente</label>
+            <input matInput #customerIdInput id="customerIdInput" type="number" placeholder="Customer ID">
+          </div>
+          <div class="input">
+            <label for="typeDocument">Tipo Documento</label>
+            <input matInput #typeDocument id="typeDocument" type="text" placeholder="Tipo Documento">
+          </div>
+          <div class="input">
+            <label for="numDocument"># Documento</label>
+            <input matInput #numDocument id="numDocument" type="text" placeholder="# Documento">
+          </div>
+          <div class="input">
+            <label for="firstNameInput">Nombre</label>
+            <input matInput #firstNameInput id="firstNameInput" type="text" placeholder="Nombre">
+          </div>
+          <div class="input">
+            <label for="lastNameInput">Apellido</label>
+            <input matInput #lastNameInput id="lastNameInput" type="text" placeholder="Apellido">
+          </div>
+        </div>
+        <div class="inputs">
+          <div class="input">
+            <label for="emailInput">Email</label>
+            <input matInput #emailInput id="emailInput" type="email" placeholder="Email">
+          </div>
+          <div class="input">
+            <label for="phoneInput">Teléfono</label>
+            <input matInput #phoneInput id="phoneInput" type="text" placeholder="Teléfono">
+          </div>
+          <div class="input">
+            <label for="address">Direccion</label>
+            <input matInput #address id="address" type="text" placeholder="Direccion">
+          </div>
+          <div class="input">
+            <label for="city">Ciudad</label>
+            <input matInput #city id="city" type="text" placeholder="Ciudad">
+          </div>
+        </div>
       </div>
     </div>
 
