@@ -5,7 +5,7 @@ import { InventoryService } from './inventory.service';
 describe('InventoryService', () => {
   let service: InventoryService;
   let httpTestingController: HttpTestingController;
-  const apiUrl = 'http://3.133.150.117:9525/api'; // Asegúrate de que esta sea la URL base correcta
+  const apiUrl = 'http://3.133.150.117:9525/api';
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -17,7 +17,7 @@ describe('InventoryService', () => {
   });
 
   afterEach(() => {
-    httpTestingController.verify(); // Asegura que no haya peticiones pendientes
+    httpTestingController.verify();
   });
 
   it('should be created', () => {
